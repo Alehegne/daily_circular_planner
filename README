@@ -1,0 +1,69 @@
+# Daily Circular Planner
+
+Interactive 24-hour circular planner with a weekly schedule view. Built with Next.js, React, Tailwind CSS, and Radix UI components.
+
+- Main UI: [`CircularPlanner`](app/page.tsx)
+- Utility: [`cn`](lib/utils.ts)
+- Toasts: [`Toaster`](components/ui/toaster.tsx), [`useToast`](hooks/use-toast.ts)
+
+## Features
+
+- Drag-and-drop tasks onto a 24-hour circular timetable
+- Weekly view with day columns and quick navigation (Previous, Today, Next)
+- Snap-to-minute granularity (5/15/30/60)
+- Conflict detection, undo/redo history
+- Export/Import JSON
+- Dark mode
+- Category-based time statistics
+
+## Tech
+
+- Next.js 16 ([package.json](package.json), [next.config.mjs](next.config.mjs))
+- React 19
+- Tailwind CSS v4 ([app/globals.css](app/globals.css), [styles/globals.css](styles/globals.css))
+- Radix UI + shadcn components ([components.json](components.json))
+- Icons: lucide-react
+
+## Getting started
+
+```sh
+# Install
+pnpm install
+
+# Development
+pnpm dev
+
+# Build
+pnpm build
+
+# Start (production)
+pnpm start
+```
+
+Node 18+ recommended.
+
+## Project structure
+
+- App shell: [app/layout.tsx](app/layout.tsx)
+- Planner UI: [app/page.tsx](app/page.tsx) as [`CircularPlanner`](app/page.tsx)
+- UI primitives: [components/ui](components/ui)
+- Utilities: [lib/utils.ts](lib/utils.ts) as [`cn`](lib/utils.ts)
+- Toast system: [components/ui/toaster.tsx](components/ui/toaster.tsx), [hooks/use-toast.ts](hooks/use-toast.ts)
+
+## Usage
+
+- Daily view: drag tasks from the left list onto the circle. Resize by dragging handles; snapping is configurable.
+- Weekly view: add/edit/remove tasks per day; navigate week with header controls.
+- History: use Undo/Redo in the task sidebar.
+- Export/Import: JSON controls in the sidebar.
+- Stats: toggle Stats in the header; view per-category totals.
+- Dark mode: toggle in the header.
+
+## Notes
+
+- Client state persists via localStorage (arcs, tasks, weekly tasks, preferences).
+- Images are unoptimized by config ([next.config.mjs](next.config.mjs)).
+
+## License
+
+No license specified.
